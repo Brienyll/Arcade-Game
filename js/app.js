@@ -1,8 +1,51 @@
+class Hero {
+    constructor() {
+        this.step = 102;
+        this.jump = 83;
+        this.x = this.step * 2;
+        this.y = this.jump * 4.7;
+        this.sprite = 'images/char-pink-girl.png';
+    }
+
+    render() {
+        ctx.drawImage(Resources.get(this.sprite) ,this.x, this.y);
+    }
+
+    handleInput(input) {
+        switch (input) {
+            case 'right':
+                if (this.x < 408) {
+                    this.x += this.step;
+                } 
+                break;
+            case 'left':
+                if (this.x > 0) {
+                    this.x -= this.step;
+                }
+                break;
+            case 'up':
+                if (this.y > 0) {
+                    this.y -= this.jump;
+                } break;
+            case 'down':
+                if (this.y < 332) {
+                    this.y += this.jump;
+                }
+
+        }
+    }
+}
+
+
+
 // Enemies our player must avoid
-var Enemy = function() {
+let Enemy = function(speed, x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    this.speed = speed;
+    this.x = 0;
+    this.y = y + 56;
+    this.step = 102;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -14,6 +57,9 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if (this.x < 408) {
+        this.x += this.speed * dt;
+    } else this.x = 0;
 };
 
 // Draw the enemy on the screen, required method for game
@@ -44,3 +90,12 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+const player = new Hero();
+const enemy1 = new Enemy(100,90, 2);
+const enemy2 = new Enemy(160, 0, 86);
+const enemy3 = new Enemy(70, 10, 174);
+const allEnemies = [];
+allEnemies.push(enemy1);
+allEnemies.push(enemy2);
+allEnemies.push(enemy3);
