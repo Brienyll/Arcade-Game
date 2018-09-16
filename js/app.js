@@ -7,11 +7,11 @@ class Hero {
         this.sprite = 'images/char-pink-girl.png';
         this.win = false;
     }
-
+//render image
     render() {
         ctx.drawImage(Resources.get(this.sprite) ,this.x, this.y);
     }
-
+// input for keypad
     handleInput(input) {
         switch (input) {
             case 'right':
@@ -35,6 +35,7 @@ class Hero {
 
         }
     }
+// collision detection
     update() {
         for (let enemy of allEnemies) {
             if (this.y === enemy.y && (this.x < enemy.x + 52 && this.x + 52 > enemy.x )) { //&& (enemy.x < this.x + 102 && enemy.x + 102 > this.x ) {
@@ -46,7 +47,7 @@ class Hero {
             }
         }
     }
-
+// if collision happens reset
     reset() {
         this.x = this.step * 2;
         this.y = Math.floor(this.jump * 4.7);
@@ -74,6 +75,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    // enemy movement
     if (this.x < 408) {
         this.x += this.speed * dt;
     } else this.x = 0;
@@ -108,6 +110,7 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+//replay button
 function replay() {
     const modal = document.querySelector(".modal-bg");
     modal.classList.toggle('hide');
