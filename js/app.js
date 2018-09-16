@@ -3,8 +3,9 @@ class Hero {
         this.step = 102;
         this.jump = 83;
         this.x = this.step * 2;
-        this.y = this.jump * 4.7;
+        this.y = Math.floor(this.jump * 4.7);
         this.sprite = 'images/char-pink-girl.png';
+        this.win = false;
     }
 
     render() {
@@ -34,6 +35,22 @@ class Hero {
 
         }
     }
+    update() {
+        for (let enemy of allEnemies) {
+            if (this.y === enemy.y && (this.x < enemy.x + 52 && this.x + 52 > enemy.x )) { //&& (enemy.x < this.x + 102 && enemy.x + 102 > this.x ) {
+                console.log('smash');
+                this.reset();
+            }
+            else if (this.y === 58) {
+                this.win = true;
+            }
+        }
+    }
+
+    reset() {
+        this.x = this.step * 2;
+        this.y = Math.floor(this.jump * 4.7);
+    }
 }
 
 
@@ -44,7 +61,7 @@ let Enemy = function(speed, x, y) {
     // we've provided one for you to get started
     this.speed = speed;
     this.x = 0;
-    this.y = y + 56;
+    this.y = Math.floor(y + 56);
     this.step = 102;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -91,10 +108,18 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+function replay() {
+    const modal = document.querySelector(".modal-bg");
+    modal.classList.toggle('hide');
+    player.reset();
+    player.victory = false;
+    location.reload();
+}
+
 const player = new Hero();
 const enemy1 = new Enemy(100,90, 2);
-const enemy2 = new Enemy(160, 0, 86);
-const enemy3 = new Enemy(70, 10, 174);
+const enemy2 = new Enemy(120, 20, 85);
+const enemy3 = new Enemy(70, 10, 168);
 const allEnemies = [];
 allEnemies.push(enemy1);
 allEnemies.push(enemy2);
