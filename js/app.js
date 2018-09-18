@@ -38,11 +38,10 @@ class Hero {
 // collision detection
     update() {
         for (let enemy of allEnemies) {
-            if (this.y === enemy.y && (this.x < enemy.x + 52 && this.x + 52 > enemy.x )) { //&& (enemy.x < this.x + 102 && enemy.x + 102 > this.x ) {
-                console.log('smash');
+            if (this.y === enemy.y && (this.x < enemy.x + 52 && this.x + 52 > enemy.x )) { 
                 this.reset();
             }
-            else if (this.y === 58) {
+            else if (this.y === -25) {
                 this.win = true;
             }
         }
@@ -61,7 +60,7 @@ let Enemy = function(speed, x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.speed = speed;
-    this.x = 0;
+    this.x = x;
     this.y = Math.floor(y + 56);
     this.step = 102;
     // The image/sprite for our enemies, this uses
@@ -78,7 +77,10 @@ Enemy.prototype.update = function(dt) {
     // enemy movement
     if (this.x < 408) {
         this.x += this.speed * dt;
-    } else this.x = 0;
+    } else {
+        this.x = 0;
+        this.speed = randomInt(90, 168);
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -118,11 +120,17 @@ function replay() {
     player.victory = false;
     location.reload();
 }
+function randomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 
 const player = new Hero();
-const enemy1 = new Enemy(100,90, 2);
-const enemy2 = new Enemy(120, 20, 85);
-const enemy3 = new Enemy(70, 10, 168);
+const enemy1 = new Enemy(randomInt(90, 168),randomInt(90, 168), 2);
+const enemy2 = new Enemy(randomInt(90, 168),randomInt(20, 80), 85);
+const enemy3 = new Enemy(randomInt(90, 168), 10, 168);
 const allEnemies = [];
 allEnemies.push(enemy1);
 allEnemies.push(enemy2);
