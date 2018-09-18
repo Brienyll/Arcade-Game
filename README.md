@@ -1,6 +1,28 @@
-frontend-nanodegree-arcade-game
-===============================
+# Memory Game Project
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+ A frogger clone arcade game.
+ 
+ press up, down, left, or right arrows to move. Reach the water area to win.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+
+## Dependencies
+
+* JS engine
+
+## Release History
+
+* 0.1.0
+    * The first proper release
+## Meta
+
+Your Name – [@br1xxx](https://twitter.com/br1xxx) – brix.angeles@gmail.com
+
+[https://github.com/Brienyll/Arcade-game](https://github.com/Brienyll/)
+
+## Contributing
+
+1. Fork it (<https://github.com/Brienyll/Arcade-game/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
