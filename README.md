@@ -10,7 +10,7 @@ https://brienyll.github.io/Arcade-Game/
 
 ## Screenshot
 
-![ScreenShot](https://github.com/Brienyll/FEND-Memory-Game/blob/master/Screen-Shot-AG.png)
+![ScreenShot](https://github.com/Brienyll/Arcade-Game/blob/master/Screen-Shot-AG.png)
 
 
 ## Dependencies
