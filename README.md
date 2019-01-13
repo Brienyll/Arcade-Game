@@ -23,7 +23,7 @@ https://brienyll.github.io/Arcade-Game/
     * The first proper release
 ## Meta
 
-Your Name – [@br1xxx](https://twitter.com/br1xxx) – brix.angeles@gmail.com
+[@br1xxx](https://twitter.com/br1xxx)
 
 [https://github.com/Brienyll/Arcade-game](https://github.com/Brienyll/)
 
