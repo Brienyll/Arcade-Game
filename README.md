@@ -6,7 +6,7 @@
 
 ## Play it here
 
-https://brienyll.github.io/Arcade-Game/ - need to fix link
+https://frogger29.netlify.com/ 
 
 ## Screenshot
 
